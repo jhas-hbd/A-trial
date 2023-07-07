@@ -1,0 +1,15 @@
+<% posts.each do |article| %>
+  <div class="content">
+    <div class="image">
+      <%= image_tag article.get_image %>
+    </div>
+    <div class="explain">
+      <p><%= article.spot %></p>
+      <p><%= article.title %></p>
+      <p><%= article.category %></p>
+      <% if article.user == current_user %>
+        <%= link_to "削除", post_path(article), method: :delete %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
